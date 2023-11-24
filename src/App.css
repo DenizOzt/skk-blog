@@ -1,0 +1,312 @@
+.App {
+  text-align: center;
+}
+body {
+  padding: 0%;
+  margin: 0%;
+  width: 100%;
+  font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  scroll-behavior: smooth;
+  background-color: aliceblue;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~Navbar~~~~~~~~~~~~~~~~~~~ */
+nav {
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background-color: rgb(16, 18, 39);
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~Links~~~~~~~~~~~~~~~~~~~ */
+nav a {
+  color: rgb(182, 182, 182);
+  text-decoration: none;
+  text-align: center;
+  width: 20%;
+  padding: 20px;
+  font-size: 23px;
+  font-weight: lighter;
+}
+
+nav a:hover {
+  background-color: rgb(182, 182, 182);
+  color: rgb(16, 18, 39);
+  transition: background-color 0.3s, color 0.4s;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~Language Dropdown~~~~~~~~~~~~~~~~~~~ */
+.langSelect select {
+  font-size: small;
+  font-weight: 500;
+  align-self: center;
+}
+
+.langSelect {
+  height: 100%;
+  margin-right: 10px;
+  margin-left: auto;
+  display: flex;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~Login Page~~~~~~~~~~~~~~~~~~~ */
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-with-google-btn {
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  padding: 5px 16px 12px 42px;
+  margin-top: 3rem;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+  color: #757575;
+  font-size: 25px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+  background-color: aliceblue;
+  background-repeat: no-repeat;
+  background-position: 12px 11px;
+}
+.login-with-google-btn:hover {
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+.login-with-google-btn:active {
+  background-color: #eeeeee;
+}
+.login-with-google-btn:focus {
+  outline: none;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
+    0 0 0 3px #c8dafc;
+}
+.login-with-google-btn:disabled {
+  filter: grayscale(100%);
+  background-color: #ebebeb;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~Create Post Page~~~~~~~~~~~~~~~~~~~ */
+.createPostPage {
+  width: 100%;
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  background-color: aliceblue;
+}
+
+.cpContainer {
+  width: 80%;
+  height: 70%;
+  margin-top: 5%;
+  padding: 1.5rem;
+  background-color: rgba(16, 18, 39, 0.849);
+  border: #4a4646;
+  border-style: double;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.cpContainer h1 {
+  text-align: center;
+}
+
+.cpContainer label {
+  font-size: 1.5rem;
+}
+.cpContainer .inputGp {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.inputGp input,
+.inputGp textarea {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: #4a4646;
+  border-style: groove;
+  border-width: 0.15rem;
+}
+
+.inputGp textarea {
+  height: 100%;
+}
+
+.cpContainer button {
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+input,
+textarea {
+  margin-top: 5px;
+}
+
+input[type="file"] {
+  border: none;
+}
+
+
+/* Posts Page */
+.postsPage {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.postCont {
+  width: 600px;
+  height: auto;
+  max-height: 600px;
+  background-color: rgb(250, 250, 250);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.postHeader {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.postHeader .title {
+  flex: 50%;
+}
+.postHeader .deletePost {
+  flex: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.deletePost button {
+  border: none;
+
+  background: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.postTextCont {
+  word-wrap: break-word;
+  height: auto;
+  max-height: 400px;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.postAttachmentsCont {
+  display: flex;
+  flex-direction: row;
+}
+
+.postAttachmentsCont a {
+  color: rgb(7, 6, 6);
+  text-decoration: none;
+  text-align: center;
+  width: 20%;
+  padding: 20px;
+  font-size: 23px;
+  font-weight: lighter;
+}
+
+.postFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  width: 100%;
+}
+
+.postFooter .postAttachmentsCont {
+  align-self: start;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.postFooter .postAttachmentsCont a {
+  align-self: start;
+}
+
+.postFooter h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.postFooter h4 {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+
+
+/* Media query for mobile responsiveness */
+@media only screen and (max-width: 600px) {
+  nav {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    flex-direction: column; /* Stack items vertically on small screens */
+    position: sticky;
+  }
+
+  nav a {
+    flex: none; /* Reset flex to default for individual items */
+    width: 100%; /* Make each link take up the full width */
+    padding: 1rem;
+    font-size: 20px;
+  }
+
+  .langSelect select {
+    height: 2rem;
+    font-size: small;
+    font-weight: 500;
+  }
+  
+  .langSelect {
+    position: relative;
+    top: 0;
+    right: 0;
+    height: 100%;
+    margin-right: 0;
+    margin-left: auto;
+    display: block;
+  }
+
+  #compLogo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-right: 0;
+    margin-left: auto;
+    display: block;
+  }
+}

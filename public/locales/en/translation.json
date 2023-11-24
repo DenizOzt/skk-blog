@@ -1,0 +1,13 @@
+{
+	"home": "Home",
+	"createPost": "Create Post",
+	"posts": "Posts",
+	"login": "Login",
+	"sign-in": "Sign In With Google",
+	"logout": "Log Out",
+	"postTitle": "Title",
+	"postTitlePH": "Title...",
+	"postText": "Post",
+	"postTextPH": "Post...",
+	"submitPostBtn": "Submit"
+}

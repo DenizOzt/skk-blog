@@ -1,0 +1,13 @@
+{
+	"home": "Ana Sayfa",
+	"createPost": "Gönderi Oluştur",
+	"posts": "Gönderiler",
+	"login": "Giriş Yap",
+	"sign-in": "Google ile Giriş Yap ",
+	"logout": "Çıkış Yap",
+	"postTitle": "Başlık",
+	"postTitlePH": "Başlık...",
+	"postText": "Gönderi",
+	"postTextPH": "Gönderi...",
+	"submitPostBtn": "Paylaş"
+}
