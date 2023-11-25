@@ -1,8 +1,9 @@
 import { collection, getDocs } from "firebase/firestore";
+import { t } from 'i18next'
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase-config";
-
-
+import { FcFile, FcAudioFile, FcImageFile, FcVideoFile } from "react-icons/fc";
+import { FileIcon, defaultStyles  } from 'react-file-icon';
 
 
 function Posts() {
@@ -36,11 +37,24 @@ function Posts() {
             <div className="postTextCont">{post.text}</div>
             <div className="postFooter">
               <div className="postAttachmentsCont">
-                <a href={post.file.url} target="_blank" rel="noreferrer">
+                <h2>{t("postAttachments")}</h2>
+                <a className="postAttachmentsLink" href={post.file.url} target="_blank" rel="noreferrer">
+                  {/* {
+                      (post.file.type==="jpeg"|| post.file.type==="jpg"|| post.file.type==="png"|| post.file.type==="gif"|| post.file.type==="raw") ? <FcImageFile title={post.file.name} size={42}></FcImageFile>
+                    : (post.file.type==="mp3"|| post.file.type==="wav"|| post.file.type==="m4a") ? <FcAudioFile title={post.file.name} size={42}></FcAudioFile>
+                    : (post.file.type==="mp4"|| post.file.type==="mkv"|| post.file.type==="webm"|| post.file.type==="mov"|| post.file.type==="avi") ? <FcVideoFile title={post.file.name} size={42}></FcVideoFile>
+                    : <FcFile title={post.file.name}  size={42}></FcFile>
+                  } */}
+                  <div className="postAttachmentsIcon">
+                    <FileIcon extension={post.file.type} {...defaultStyles[post.file.type]}></FileIcon>
+                  </div>
                 </a>
+                {/* <h4>{post.file.name}</h4> */}
               </div>
-              <h3>@{post.author.name}</h3>
-              <h4>{post.date.toLocaleString()}</h4>
+              <div className="postSignatureCont">
+                <h3>@{post.author.name}</h3>
+                <h4>{post.date.toLocaleString()}</h4>
+              </div>
             </div>
           </div>
         );
