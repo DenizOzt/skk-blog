@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
 
 function CreatePost({ isAuth }) {
-  const postMaxLength = 1000;
+  const postMaxLength = 10000;
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
   const [postFile, setPostFile] = useState();
@@ -84,9 +84,8 @@ function CreatePost({ isAuth }) {
   }, []);
   return (
     <div className="createPostPage">
-      
       <div className="cpContainer">
-        <h1>{t("createPost")}</h1>
+        <h1 className="cpTitle">{t("createPost")}</h1>
         <div className="inputGp">
           <label>{t("postTitle")}:</label>
           <input
@@ -112,15 +111,16 @@ function CreatePost({ isAuth }) {
           ></textarea>
         </div>
         <div className="inputGp" id="post-file-inp-cont">
+          {/* <label  htmlFor="post-file-inp">{t("chooseFile")}</label> */}
           <input
             type="file"
             id="post-file-inp"
             disabled={loading}
             onChange={(event) => {
-              if(event.target.files[0].size > 52428800){
+              if (event.target.files[0].size > 52428800) {
                 alert("File can't be bigger than 50MB!");
                 event.target.value = "";
-              }else{
+              } else {
                 setPostFile(event.target.files[0]);
               }
             }}
@@ -135,10 +135,7 @@ function CreatePost({ isAuth }) {
             ></RotatingLines>
           </div>
         </div>
-        <button 
-          onClick={uploadPost} 
-          id="submit-btn"
-          disabled={loading}>
+        <button onClick={uploadPost} id="submit-btn" disabled={loading}>
           {t("submitPostBtn")}
         </button>
       </div>

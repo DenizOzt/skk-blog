@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Posts from './pages/Posts';
+import Post from './pages/Post';
 import CreatePost from './pages/CreatePost';
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./services/LanguageSwitcher";
@@ -42,6 +43,7 @@ function App() {
       <Route path='' element={<Home/>}/>
       <Route path='createpost' element={<CreatePost isAuth={isAuth}/>}/>
       <Route path='posts' element={<Posts/>}/>
+      <Route path='post/:postId' element={<Post/>}/>
       <Route path='login' element={<Login setIsAuth={setIsAuth}/>}/>
     </Routes>
   </Router>

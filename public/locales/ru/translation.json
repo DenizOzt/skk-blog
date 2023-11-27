@@ -4,5 +4,12 @@
 	"posts": "Сообщения",
 	"login": "Авторизоваться",
 	"sign-in": "Войти через Google ",
-	"logout": "Выход"
+	"logout": "Выход",
+	"postTitle": "Заголовок",
+	"postTitlePH": "Заголовок...",
+	"postText": "Пост",
+	"postTextPH": "Пост...",
+	"submitPostBtn": "Делиться",
+	"postAttachments": "Вложения",
+	"readMoreText": "..."
 }

@@ -13,7 +13,7 @@ body {
 /* ~~~~~~~~~~~~~~~~~~~Navbar~~~~~~~~~~~~~~~~~~~ */
 nav {
   overflow: hidden;
-  position: sticky absolute;
+  position: sticky;
   top: 0;
   width: 100%;
   height: 60px;
@@ -81,7 +81,7 @@ nav a:hover {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
-  background-color: aliceblue;
+  background-color: whitesmoke;
   background-repeat: no-repeat;
   background-position: 12px 11px;
 }
@@ -112,12 +112,13 @@ nav a:hover {
   background-color: aliceblue;
 }
 
-.cpContainer {
+.createPostPage .cpContainer {
   width: 80%;
   height: 70%;
   margin-top: 5%;
   padding: 1.5rem;
-  background-color: rgba(16, 18, 39, 0.849);
+  background-color: rgba(16, 18, 39, 0.951);
+  box-shadow: rgba(0, 0, 0, 0.407) 0px 3px 8px;
   border: #4a4646;
   border-style: double;
   color: white;
@@ -126,7 +127,7 @@ nav a:hover {
 
 }
 
-.cpContainer h1 {
+.cpContainer .cpTitle {
   text-align: center;
 }
 
@@ -151,11 +152,16 @@ nav a:hover {
 
 .inputGp textarea {
   height: 100%;
+  resize: vertical;
 }
 
 .inputGp .loadingCircleCont {
   align-self: center;
 } 
+
+/* .inputGp #post-file-inp {
+  display: none;
+} */
 
 .cpContainer button {
   cursor: pointer;
@@ -185,7 +191,7 @@ input[type="file"] {
 .postsPage .postCont {
   width: 80%;
   height: auto;
-  max-height: 600px;
+  /* max-height: 600px; */
   background-color: rgb(250, 250, 250);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin: 1rem;
@@ -194,6 +200,18 @@ input[type="file"] {
   display: flex;
   flex-direction: column;
 }
+
+.postsPage .postCont:hover {
+  width: 81%;
+  background-color: rgb(240, 240, 240);
+  box-shadow: rgba(0, 0, 0, 0.507) 0px 4px 10px;
+}
+
+.postsPage .postCont:active {
+  transform: translateY(0.2rem);
+  box-shadow: rgba(0, 0, 0, 0.507) 0px 6px 16px;
+}
+
 
 .postCont .postHeader {
   display: flex;
@@ -228,6 +246,23 @@ input[type="file"] {
   overflow-y: auto;
 }
 
+.postTextCont p {
+  max-height: 4rem;
+  overflow:hidden;
+  overflow-wrap: normal;
+
+}
+
+.postTextCont button {
+  display: none;
+}
+
+.postTextCont .readMoreLabel {
+  font-style: italic;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
 .postFooter {
   display: flex;
   text-align: end;
@@ -251,6 +286,10 @@ input[type="file"] {
 
 .postFooter .postSignatureCont {
   width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
 .postFooter h2 {
@@ -263,19 +302,39 @@ input[type="file"] {
 }
 
 .postFooter h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
   font-size: 1.2rem;
   font-weight: bold;
 }
 
 .postFooter h4 {
+  margin-top: 0;
   font-size: 0.7rem;
   font-weight: 600;
 }
 
+/* Single Post Page */
+
+.singlePostPage {
+  display: flex;
+  border-width: 0.5rem;
+  border-style: groove;
+}
 
 
 /* Media query for mobile responsiveness */
 @media only screen and (max-width: 600px) {
+  
+  #compLogo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-right: 0;
+    margin-left: auto;
+    display: block;
+  }
+  
   nav {
     width: 100%;
     height: 100%;
@@ -307,12 +366,13 @@ input[type="file"] {
     display: block;
   }
 
-  #compLogo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin-right: 0;
-    margin-left: auto;
-    display: block;
+  .postFooter h3 {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  .postFooter h4 {
+    font-size: 0.5rem;
+    font-weight: 600;
   }
 }
