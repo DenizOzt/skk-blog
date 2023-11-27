@@ -247,17 +247,17 @@ input[type="file"] {
 }
 
 .postTextCont p {
-  max-height: 4rem;
+  max-height: 3.6rem;
   overflow:hidden;
   overflow-wrap: normal;
-
+  margin-bottom: 0.2rem;
 }
 
 .postTextCont button {
   display: none;
 }
 
-.postTextCont .readMoreLabel {
+.postTextCont .readMoreText {
   font-style: italic;
   font-weight: normal;
   text-transform: uppercase;
@@ -273,8 +273,12 @@ input[type="file"] {
 .postFooter .postAttachmentsCont {
   text-align: start;
   width: 50%;
-  display: flex;
-  flex-direction: column;
+  /* flex-wrap: wrap;
+  flex-direction: column; */
+}
+
+.postAttachmentsCont .postAttachmentsLink {
+  display: inline-block;
 }
 
 .postAttachmentsLink .postAttachmentsIcon {

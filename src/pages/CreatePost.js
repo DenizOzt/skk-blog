@@ -111,7 +111,6 @@ function CreatePost({ isAuth }) {
           ></textarea>
         </div>
         <div className="inputGp" id="post-file-inp-cont">
-          {/* <label  htmlFor="post-file-inp">{t("chooseFile")}</label> */}
           <input
             type="file"
             id="post-file-inp"

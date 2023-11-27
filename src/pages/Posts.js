@@ -9,12 +9,11 @@ function Posts() {
   const [postList, setPostList] = useState([]);
   const postCollectionRef = collection(db, "posts");
 
-  let btnIdNum = 0;
   let navigate = useNavigate();
 
-  const delay = ms => new Promise(
-    resolve => setTimeout(resolve, ms)
-  );
+  // const delay = ms => new Promise(
+  //   resolve => setTimeout(resolve, ms)
+  // );
 
   const goToPost = (pID) => {
     navigate("/post/" + pID);
@@ -37,11 +36,11 @@ function Posts() {
     <div className="postsPage">
       {postList.map((post) => {
         let postId = post.id;
-        let readMoreBtnId = (++btnIdNum).toString().padStart(10, "0");
         return (
           <div
             className="postCont"
             onClick={() => {
+              console.log("div")
               goToPost(postId);
             }}
           >
@@ -52,16 +51,7 @@ function Posts() {
             </div>
             <div className="postTextCont">
               <p>{post.text}</p>
-              <label htmlFor={readMoreBtnId} className="readMoreLabel">
-                {t("readMoreText")}
-              </label>
-              <button
-                id={readMoreBtnId}
-                className="readMoreBtn"
-                // onClick={() => {
-                //   goToPost(postId);
-                // }}
-              ></button>
+              <label className="readMoreText">{t("readMoreText")}</label>
             </div>
             <div className="postFooter">
               <div className="postAttachmentsCont">
@@ -71,13 +61,8 @@ function Posts() {
                   href={post.file.url}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  {/* {
-                      (post.file.type==="jpeg"|| post.file.type==="jpg"|| post.file.type==="png"|| post.file.type==="gif"|| post.file.type==="raw") ? <FcImageFile title={post.file.name} size={42}></FcImageFile>
-                    : (post.file.type==="mp3"|| post.file.type==="wav"|| post.file.type==="m4a") ? <FcAudioFile title={post.file.name} size={42}></FcAudioFile>
-                    : (post.file.type==="mp4"|| post.file.type==="mkv"|| post.file.type==="webm"|| post.file.type==="mov"|| post.file.type==="avi") ? <FcVideoFile title={post.file.name} size={42}></FcVideoFile>
-                    : <FcFile title={post.file.name}  size={42}></FcFile>
-                  } */}
                   <div className="postAttachmentsIcon">
                     <FileIcon
                       extension={post.file.type}
@@ -85,7 +70,6 @@ function Posts() {
                     ></FileIcon>
                   </div>
                 </a>
-                {/* <h4>{post.file.name}</h4> */}
               </div>
               <div className="postSignatureCont">
                 <h3>@{post.author.name}</h3>
