@@ -1,6 +1,8 @@
 import {
   collection,
   getDocs,
+  startAfter,
+  limit,
   query,
   onSnapshot,
   orderBy,
@@ -14,42 +16,52 @@ import { useNavigate } from "react-router-dom";
 function Posts() {
   const [postList, setPostList] = useState([]);
   const postCollectionRef = collection(db, "posts");
+  const [lastQuery, setLastQuery] = useState(
+    query(postCollectionRef, orderBy("timestamp", "desc"), limit(5))
+  );
 
   let navigate = useNavigate();
 
   // const delay = ms => new Promise(
   //   resolve => setTimeout(resolve, ms)
   // );
+  const fetchNextDocs = async () => {
+    const documentSnapshots = await getDocs(lastQuery);
+    const lastVisible =
+      documentSnapshots.docs[documentSnapshots.docs.length - 1];
+    const next = query(
+      postCollectionRef,
+      orderBy("timestamp", "desc"),
+      startAfter(lastVisible),
+      limit(5)
+    );
+    onSnapshot(next, (snapshot) => {
+      setPostList(
+        [...postList,
+        ...(snapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+          date: new Date(doc.data().timestamp.seconds * 1000),
+        })))]
+      );
+      setLastQuery(next);
+    });
+  };
 
   const goToPost = (pID) => {
     navigate("/post/" + pID);
   };
 
   useEffect(() => {
-    onSnapshot(
-      query(postCollectionRef, orderBy("timestamp", "desc")),
-      (snapshot) => {
-        setPostList(
-          snapshot.docs.map((doc) => ({
-            ...doc.data(),
-            id: doc.id,
-            date: new Date(doc.data().timestamp.seconds * 1000),
-          }))
-        );
-      }
-    );
-
-    // const getPosts = async () => {
-    //   const data = await getDocs(postCollectionRef);
-    //   debugger;
-    //   const posts = data.docs.map((doc) => ({
-    //     ...doc.data(),
-    //     id: doc.id,
-    //     date: new Date(doc.data().timestamp.seconds * 1000),
-    //   }));
-    //   setPostList(posts);
-    // };
-    // getPosts();
+    onSnapshot(lastQuery, (snapshot) => {
+      setPostList(
+        snapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+          date: new Date(doc.data().timestamp.seconds * 1000),
+        }))
+      );
+    });
   }, []);
 
   return (
@@ -103,6 +115,7 @@ function Posts() {
           </div>
         );
       })}
+      <button className="loadMoreBtn" onClick={fetchNextDocs}>{t("loadMorePosts")}</button>
     </div>
   );
 }
