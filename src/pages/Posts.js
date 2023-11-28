@@ -27,7 +27,7 @@ function Posts() {
 
   useEffect(() => {
     onSnapshot(
-      query(collection(db, "posts"), orderBy("timestamp", "desc")),
+      query(postCollectionRef, orderBy("timestamp", "desc")),
       (snapshot) => {
         setPostList(
           snapshot.docs.map((doc) => ({
