@@ -279,13 +279,14 @@ input[type="file"] {
 
 .postAttachmentsCont .postAttachmentsLink {
   display: inline-block;
+  margin: 0.5rem;
 }
 
 .postAttachmentsLink .postAttachmentsIcon {
   width: 2.2rem;
-  margin: 0.5rem;
+  /* margin: 0.5rem;
   border-style: outset;
-  border-color: #4a46464a;
+  border-color: #4a46464a; */
 }
 
 .postFooter .postSignatureCont {

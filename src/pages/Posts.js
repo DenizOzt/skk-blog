@@ -55,7 +55,6 @@ function Posts() {
   return (
     <div className="postsPage">
       {postList.map((post) => {
-        debugger;
         let postId = post.id;
         return (
           <div
