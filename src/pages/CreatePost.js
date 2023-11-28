@@ -11,51 +11,47 @@ function CreatePost({ isAuth }) {
   const postMaxLength = 10000;
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
-  const [postFile, setPostFile] = useState();
+  const [postFiles, setPostFiles] = useState([]);
+  // const [postFilesWUrlArr, setPostFilesWUrlArr] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const postCollectionRef = collection(db, "posts");
 
   let navigate = useNavigate();
+  var filesArr = [];
 
-  const uploadPost = () => {
-    const file = postFile;
-    const uName = "Uploads/" + file.name;
-    const storageRef = ref(storage, uName);
+  const uploadPost = async () => {
+    setLoading(true);
 
-    if (file) {
-      setLoading(true);
-      uploadBytes(storageRef, file).then((snapshot) => {
-        getDownloadURL(storageRef).then((url) => {
-          addDoc(postCollectionRef, {
-            title: title,
-            text: postText,
-            file: {
-              url: url,
-              type: url.split(".").pop().split("?")[0],
-              name: file.name,
-            },
-            author: {
-              name: auth.currentUser.displayName,
-              id: auth.currentUser.uid,
-            },
-            timestamp: getTimeStamp(),
-          })
-            .then((docRef) => {
-              setLoading(false);
-              console.log("Document written with ID: ", docRef.id);
-              navigate("/posts");
-            })
-            .catch((error) => {
-              console.error("Error adding document: ", error);
+    const bar = new Promise((resolve, reject) => {
+      let files = postFiles;
+      if (files.length === 0) {
+        resolve();
+      } else {
+        [...files].forEach((file, index, arr) => {
+          let uName = "Uploads/" + file.name;
+          let storageRef = ref(storage, uName);
+          uploadBytes(storageRef, file).then((snapshot) => {
+            getDownloadURL(storageRef).then((url) => {
+              filesArr.push({
+                url: url,
+                type: url.split(".").pop().split("?")[0],
+                name: file.name,
+              });
+              if (filesArr.length === arr.length) {
+                resolve();
+              }
             });
+          });
         });
-      });
-    } else {
+      }
+    });
+
+    bar.then(() => {
       addDoc(postCollectionRef, {
-        postTitle: title,
-        postText: postText,
-        file: { url: "-", type: "-", name: "-" },
+        title: title,
+        text: postText,
+        files: filesArr,
         author: {
           name: auth.currentUser.displayName,
           id: auth.currentUser.uid,
@@ -70,7 +66,7 @@ function CreatePost({ isAuth }) {
         .catch((error) => {
           console.error("Error adding document: ", error);
         });
-    }
+    });
   };
 
   const getTimeStamp = () => {
@@ -115,12 +111,13 @@ function CreatePost({ isAuth }) {
             type="file"
             id="post-file-inp"
             disabled={loading}
+            multiple
             onChange={(event) => {
               if (event.target.files[0].size > 52428800) {
-                alert("File can't be bigger than 50MB!");
+                alert("Files can't be bigger than 50MB!");
                 event.target.value = "";
               } else {
-                setPostFile(event.target.files[0]);
+                setPostFiles(event.target.files);
               }
             }}
           />

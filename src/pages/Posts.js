@@ -1,4 +1,10 @@
-import { collection, getDocs } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  query,
+  onSnapshot,
+  orderBy,
+} from "firebase/firestore";
 import { t } from "i18next";
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase-config";
@@ -20,27 +26,42 @@ function Posts() {
   };
 
   useEffect(() => {
-    const getPosts = async () => {
-      const data = await getDocs(postCollectionRef);
-      const posts = data.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-        date: new Date(doc.data().timestamp.seconds * 1000),
-      }));
-      setPostList(posts);
-    };
-    getPosts();
+    onSnapshot(
+      query(collection(db, "posts"), orderBy("timestamp", "desc")),
+      (snapshot) => {
+        setPostList(
+          snapshot.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+            date: new Date(doc.data().timestamp.seconds * 1000),
+          }))
+        );
+      }
+    );
+
+    // const getPosts = async () => {
+    //   const data = await getDocs(postCollectionRef);
+    //   debugger;
+    //   const posts = data.docs.map((doc) => ({
+    //     ...doc.data(),
+    //     id: doc.id,
+    //     date: new Date(doc.data().timestamp.seconds * 1000),
+    //   }));
+    //   setPostList(posts);
+    // };
+    // getPosts();
   }, []);
 
   return (
     <div className="postsPage">
       {postList.map((post) => {
+        debugger;
         let postId = post.id;
         return (
           <div
             className="postCont"
             onClick={() => {
-              console.log("div")
+              console.log("div");
               goToPost(postId);
             }}
           >
@@ -56,20 +77,24 @@ function Posts() {
             <div className="postFooter">
               <div className="postAttachmentsCont">
                 <h2>{t("postAttachments")}</h2>
-                <a
-                  className="postAttachmentsLink"
-                  href={post.file.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <div className="postAttachmentsIcon">
-                    <FileIcon
-                      extension={post.file.type}
-                      {...defaultStyles[post.file.type]}
-                    ></FileIcon>
-                  </div>
-                </a>
+                {post.files.map((file) => {
+                  return (
+                    <a
+                      className="postAttachmentsLink"
+                      href={file.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <div className="postAttachmentsIcon">
+                        <FileIcon
+                          extension={file.type}
+                          {...defaultStyles[file.type]}
+                        ></FileIcon>
+                      </div>
+                    </a>
+                  );
+                })}
               </div>
               <div className="postSignatureCont">
                 <h3>@{post.author.name}</h3>
