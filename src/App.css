@@ -188,7 +188,11 @@ input[type="file"] {
   /* flex-direction: row; */
   align-items: center;
   padding-top: 20px;
-  background-color: rgb(25, 19, 19);
+  /* background-color: rgb(25, 19, 19); */
+  background-image: url(pictures/bg7.jpg);
+  background-size: contain;
+  background-attachment: fixed;
+  
 }
 
 .postsPage .colLeft {

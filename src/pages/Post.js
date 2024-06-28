@@ -1,9 +1,8 @@
-import { collection, doc, getDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db, storage, ref, getDownloadURL } from "../firebase-config";
 import { useParams } from "react-router-dom";
 import { t } from "i18next";
 import { useEffect, useState } from "react";
-import { FileIcon, defaultStyles } from "react-file-icon";
 import mammoth from 'mammoth';
 
 function Post() {
@@ -12,7 +11,6 @@ function Post() {
   const [error, setError] = useState(null);
   const [htmlContent, setHtmlContent] = useState('');
   const params = useParams();
-  const docRef = doc(db, "posts", toString(params.postId));
   const getDocumentById = async (collectionName, docId) => {
     const docRef = doc(db, collectionName, docId);
     const docSnap = await getDoc(docRef);
@@ -48,7 +46,7 @@ function Post() {
       }
     };
     fetchDocument();
-  }, [params]);
+  }, [htmlContent, params]);
 
   if (loading) {
     return <div>Loading...</div>;
