@@ -174,19 +174,41 @@ input[type="file"] {
 }
 
 
-/* Posts Page */
+/* ~~~~~~~~~~~~~~~~~~~Posts Page~~~~~~~~~~~~~~~~~~~ */
 .postsPage {
   width: 100%;
   min-height: calc(100vh - 80px);
   height: auto;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: [colLeft] 15% [colMiddle] auto [colRight] 15%;
+  gap: 2rem;
+  /* grid-template-columns: repeat(3,minmax(0,2fr)); */
+  /* display: flex; */
+  /* flex-direction: row; */
+  align-items: center;
+  padding-top: 20px;
+  background-color: rgb(25, 19, 19);
+}
+
+.postsPage .colLeft {
+  grid: 1;
+}
+
+.postsPage .colMiddle {
+  grid: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  
 }
 
-.postsPage .postCont {
-  width: 80%;
+.postsPage .colRight {
+  grid: 3;
+}
+
+.colMiddle .postCont {
+  width: 90%;
   height: auto;
   background-color: rgb(250, 250, 250);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -197,13 +219,13 @@ input[type="file"] {
   flex-direction: column;
 }
 
-.postsPage .postCont:hover {
-  width: 81%;
+.colMiddle .postCont:hover {
+  width: 91%;
   background-color: rgb(240, 240, 240);
   box-shadow: rgba(0, 0, 0, 0.507) 0px 4px 10px;
 }
 
-.postsPage .postCont:active {
+.colMiddle .postCont:active {
   transform: translateY(0.2rem);
   box-shadow: rgba(0, 0, 0, 0.507) 0px 6px 16px;
 }
@@ -242,7 +264,7 @@ input[type="file"] {
 }
 
 .postTextCont p {
-  max-height: 3.6rem;
+  /* max-height: 3.6rem; */
   overflow:hidden;
   overflow-wrap: normal;
   margin-bottom: 0.2rem;
@@ -313,7 +335,7 @@ input[type="file"] {
   margin-bottom: 1rem;
 }
 
-/* Single Post Page */
+/* ~~~~~~~~~~~~~~~~~~~Single Post Page~~~~~~~~~~~~~~~~~~~ */
 
 .singlePostPage {
   display: flex;
@@ -365,13 +387,31 @@ input[type="file"] {
     display: block;
   }
 
-  .postFooter h3 {
+  .postsPage {
+    font-size: 0.6rem;
+  }
+
+  
+.postTextCont p {
+  max-height: 3.6rem;
+}
+
+  .postFooter .postAttachmentsCont {
+    display: none;
+  }
+
+  /* .postFooter h2 {
     font-size: 0.9rem;
+    font-weight: bold;
+  } */
+
+  .postFooter h3 {
+    font-size: 0.6rem;
     font-weight: bold;
   }
   
   .postFooter h4 {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
     font-weight: 600;
   }
 }

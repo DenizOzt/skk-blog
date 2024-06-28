@@ -12,5 +12,6 @@
 	"submitPostBtn": "Submit",
 	"postAttachments": "Attachments",
 	"readMoreText": "...",
-	"loadMorePosts": "Load More"
+	"loadMorePosts": "Load More",
+	"noMorePosts": "No More Posts To Load"
 }

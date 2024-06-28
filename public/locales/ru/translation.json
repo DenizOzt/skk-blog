@@ -11,5 +11,7 @@
 	"postTextPH": "Пост...",
 	"submitPostBtn": "Делиться",
 	"postAttachments": "Вложения",
-	"readMoreText": "..."
+	"readMoreText": "...",
+	"loadMorePosts": "Больше",
+	"noMorePosts": "Нет Больше Сообщений Для Загрузки"
 }
