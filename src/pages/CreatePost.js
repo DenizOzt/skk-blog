@@ -94,7 +94,7 @@ function CreatePost({ isAuth }) {
             }}
           />
         </div>
-        <div className="inputGp">
+        {/* <div className="inputGp">
           <label>{t("postText")}:</label>
           <textarea
             id="post-text-inp"
@@ -105,13 +105,13 @@ function CreatePost({ isAuth }) {
               setPostText(event.target.value);
             }}
           ></textarea>
-        </div>
+        </div> */}
         <div className="inputGp" id="post-file-inp-cont">
           <input
             type="file"
             id="post-file-inp"
             disabled={loading}
-            multiple
+            accept=".docx"
             onChange={(event) => {
               if (event.target.files[0].size > 52428800) {
                 alert("Files can't be bigger than 50MB!");
@@ -121,6 +121,7 @@ function CreatePost({ isAuth }) {
               }
             }}
           />
+        <p>{t("acceptedFileTypes")}</p>
           <div className="loadingCircleCont">
             <RotatingLines
               strokeColor="black"

@@ -13,5 +13,6 @@
 	"postAttachments": "Attachments",
 	"readMoreText": "...",
 	"loadMorePosts": "Load More",
-	"noMorePosts": "No More Posts To Load"
+	"noMorePosts": "No More Posts To Load",
+	"acceptedFileTypes": "Accepted File Types: '.docx'"
 }

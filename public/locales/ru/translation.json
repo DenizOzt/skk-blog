@@ -13,5 +13,6 @@
 	"postAttachments": "Вложения",
 	"readMoreText": "...",
 	"loadMorePosts": "Больше",
-	"noMorePosts": "Нет Больше Сообщений Для Загрузки"
+	"noMorePosts": "Нет Больше Сообщений Для Загрузки",
+	"acceptedFileTypes": "Принимаемые типы файлов: '.docx'"
 }

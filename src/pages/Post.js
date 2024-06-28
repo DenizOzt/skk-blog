@@ -55,7 +55,7 @@ function Post() {
   }
   if (document && htmlContent) {
     return (
-      <div>
+      <div className="singlePostPage">
         <div>
           <h1>{document.title}</h1>
         </div>

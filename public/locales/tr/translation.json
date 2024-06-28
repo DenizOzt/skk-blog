@@ -13,5 +13,6 @@
 	"postAttachments": "Eklentiler",
 	"readMoreText": "...",
 	"loadMorePosts": "Daha Fazla",
-	"noMorePosts": "Yüklenecek Başka Gönderi Yok"
+	"noMorePosts": "Yüklenecek Başka Gönderi Yok",
+	"acceptedFileTypes": "Kabul Edilen Dosya Tipleri: '.docx'"
 }
