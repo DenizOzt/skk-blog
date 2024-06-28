@@ -79,7 +79,7 @@ function CreatePost({ isAuth }) {
     }
   }, []);
   return (
-    <div className="createPostPage">
+    <div className="createPostPage backgroundMarble">
       <div className="cpContainer">
         <h1 className="cpTitle">{t("createPost")}</h1>
         <div className="inputGp">

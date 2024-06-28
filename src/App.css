@@ -1,10 +1,14 @@
 .App {
   text-align: center;
 }
+html {
+  margin: 0;
+  min-height: 100%;
+}
 body {
-  padding: 0%;
-  margin: 0%;
+  margin: 0;
   width: 100%;
+  min-height: 100%;
   font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   scroll-behavior: smooth;
   background-color: aliceblue;
@@ -43,6 +47,9 @@ nav a {
   padding: 20px;
   font-size: 23px;
   font-weight: lighter;
+  display: flex;
+  flex-grow: 2;
+  flex-direction: column;
 }
 
 nav a:hover {
@@ -65,25 +72,27 @@ nav a:hover {
   margin-right: 10px;
   margin-left: auto;
   display: flex;
+  flex-grow: 1;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~Home Page~~~~~~~~~~~~~~~~~~~ */
 .homePage {
+  width: 100%;
+  min-height: calc(100vh - 60px);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column;/* 
+  justify-content: center; */
   align-items: center;
-  min-height: calc(100vh - 80px);
 }
 
 
 /* ~~~~~~~~~~~~~~~~~~~Login Page~~~~~~~~~~~~~~~~~~~ */
 .loginPage {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column;/* 
+  justify-content: center; */
   align-items: center;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 60px);
 }
 
 .login-with-google-btn {
@@ -196,7 +205,7 @@ input[type="file"] {
 /* ~~~~~~~~~~~~~~~~~~~Posts Page~~~~~~~~~~~~~~~~~~~ */
 .postsPage {
   width: 100%;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 60px);
   height: auto;
   display: grid;
   justify-items: center;
