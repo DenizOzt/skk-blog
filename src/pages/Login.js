@@ -18,7 +18,7 @@ function Login({setIsAuth}) {
     });
   };
   return (
-    <div className='loginPage'>
+    <div className='loginPage backgroundMarble'>
       <button className='login-with-google-btn' onClick={signInWithGoogle}>{t("sign-in")}</button>
     </div>
   )

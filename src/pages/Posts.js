@@ -73,7 +73,7 @@ function Posts() {
   }, []);
 
   return (
-    <div className="postsPage">
+    <div className="postsPage backgroundMarble">
       <div className="colLeft"></div>
       <div className="colMiddle">
         {postList.map((post) => {

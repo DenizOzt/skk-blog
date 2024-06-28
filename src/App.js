@@ -31,7 +31,7 @@ function App() {
   <Router>
     <nav>
       <Navbar.Brand>
-        <img id='compLogo' src={logo} alt='SKK'/>
+        {/* <img id='compLogo' src={logo} alt='SKK'/> */}
       </Navbar.Brand>
       <Link to={"/"}>{t("home")}</Link>
       {isAuth && <Link to={"/createpost"}>{t("createPost")}</Link>}
