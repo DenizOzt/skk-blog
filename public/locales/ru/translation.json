@@ -14,5 +14,6 @@
 	"readMoreText": "...",
 	"loadMorePosts": "Больше",
 	"noMorePosts": "Нет Больше Сообщений Для Загрузки",
-	"acceptedFileTypes": "Принимаемые типы файлов: '.docx'"
+	"acceptedFileTypes": "Принимаемые типы файлов: '.docx'",
+	"notAuth": "Вы не авторизованы для входа в систему"
 }

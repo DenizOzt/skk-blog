@@ -14,5 +14,6 @@
 	"readMoreText": "...",
 	"loadMorePosts": "Load More",
 	"noMorePosts": "No More Posts To Load",
-	"acceptedFileTypes": "Accepted File Types: '.docx'"
+	"acceptedFileTypes": "Accepted File Types: '.docx'",
+	"notAuth": "You are not authorized to login"
 }

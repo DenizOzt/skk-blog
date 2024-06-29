@@ -14,5 +14,6 @@
 	"readMoreText": "...",
 	"loadMorePosts": "Daha Fazla",
 	"noMorePosts": "Yüklenecek Başka Gönderi Yok",
-	"acceptedFileTypes": "Kabul Edilen Dosya Tipleri: '.docx'"
+	"acceptedFileTypes": "Kabul Edilen Dosya Tipleri: '.docx'",
+	"notAuth": "Giriş yapmaya yetkiniz yok"
 }
