@@ -236,7 +236,7 @@ input[type="file"] {
 }
 
 .colMiddle .postCont {
-  width: 90%;
+  width: 100%;
   height: auto;
   background-color: rgb(235, 235, 239);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 0px 0px;

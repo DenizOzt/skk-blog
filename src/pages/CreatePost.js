@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
 
 function CreatePost({ isAuth }) {
-  const postMaxLength = 10000;
+  const postMaxLength = 350;
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
   const [postFiles, setPostFiles] = useState([]);
@@ -94,7 +94,7 @@ function CreatePost({ isAuth }) {
             }}
           />
         </div>
-        {/* <div className="inputGp">
+        <div className="inputGp">
           <label>{t("postText")}:</label>
           <textarea
             id="post-text-inp"
@@ -105,7 +105,7 @@ function CreatePost({ isAuth }) {
               setPostText(event.target.value);
             }}
           ></textarea>
-        </div> */}
+        </div>
         <div className="inputGp" id="post-file-inp-cont">
           <input
             type="file"

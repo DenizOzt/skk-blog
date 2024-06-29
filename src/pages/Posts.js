@@ -92,7 +92,7 @@ function Posts() {
               </div>
               <div className="postTextCont">
                 <p>{post.text}</p>
-                <label className="readMoreText">{t("readMoreText")}</label>
+                {/* <label className="readMoreText">{t("readMoreText")}</label> */}
               </div>
               <div className="postFooter">
                 <div className="postAttachmentsCont">
